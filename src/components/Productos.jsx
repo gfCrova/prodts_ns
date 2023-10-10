@@ -1,18 +1,19 @@
-import React from 'react'
-import Producto from './Producto'
+import { Component } from 'react'
+import Producto from './Producto.jsx'
 import PropTypes from 'prop-types';
+import styles from './Productos.module.css'
 
-class Productos extends React.Component {
+class Productos extends Component {
   render() {
     const { productos, agregarAlCarro } = this.props;
 
     return (
-        <div>
-            {productos.map((producto) => (
+        <div className={`${styles.productos}`}>
+            {productos.map((prod) => (
                 <Producto 
                     agregarAlCarro={agregarAlCarro}
-                    key={producto.name}
-                    producto={producto}
+                    key={prod.name}
+                    producto={prod}
                 />
             ))}
         </div>
