@@ -1,0 +1,48 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    color: #0A283E;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.title {
+    margin-bottom: 30px;
+}
+
+.productos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.producto {
+    border: solid 1px #eee;
+    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+    width: 30%;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+.img {
+    width: 100%;
+}
+
+.button {
+    background-color: #0A283e;
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #165786;
+}
+
+.button:active {
+    transform: scale(0.9);
+}
