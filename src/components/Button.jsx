@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import styles from './Productos.module.css'
+import styles from './All.module.css'
 
 class Button extends Component {
 

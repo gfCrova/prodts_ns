@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import Button from './Button.jsx'
 import PropTypes from 'prop-types'
-import styles from './Productos.module.css'
+import styles from './All.module.css'
 
 class Producto extends Component {
     render() {
