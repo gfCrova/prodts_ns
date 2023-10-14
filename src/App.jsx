@@ -1,31 +1,49 @@
-import { Component } from "react"
 import Productos from './components/Productos'
 import Layout from './components/Layout'
 import Title from './components/Title'
+import Navbar from './components/Navbar.jsx'
+import { useState } from 'react'
 
-class App extends Component {
+const App = () => {
 
-  state = {
-    productos : [
-      { name : 'Tomate', price : 1500, img : 'productos/tomate.jpg'},
-      { name : 'Lechuga', price : 1500, img : 'productos/lechuga.jpg'},
-      { name : 'Arbejas', price : 1500, img : 'productos/arbejas.jpg'}
-    ]
+  const [carrito, setCarrito] = useState([]);
+  const [carritoVisible, setCarritoVisible] = useState(false);
+
+  const agregarAlCarro = (producto) => {
+    if (carrito.find((x) => x.id === producto.id)) {
+      const newCarrito = carrito.map((x) =>
+        x.id === producto.id ? { ...x, cantidad: x.cantidad + 1 } : x
+      );
+      setCarrito(newCarrito);
+    } else {
+      setCarrito([...carrito, { ...producto, cantidad: 1 }]);
+    }
   }
 
-  render () {
-    return (
-      <div>
+  const mostrarCarrito = () => {
+    if (!carrito.length) {
+      return;
+    }
+    setCarritoVisible(!carritoVisible);
+  };
+
+  return (
+    <main>
+      <nav>
+        <Navbar 
+            carrito={carrito} 
+            carritoVisible={carritoVisible} 
+            mostrarCarrito={mostrarCarrito}
+        />
+      </nav>
         <Layout>
           <Title/>
           <Productos 
-            agregarAlCarro={() => {console.log("No hace nada")}}
-            productos = {this.state.productos}
+            agregarAlCarro={agregarAlCarro}
           />
         </Layout>
-      </div>
-    )
-  }
-}
+    </main>
+  );
+};
 
-export default App
+export default App;
