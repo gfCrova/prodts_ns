@@ -1,0 +1,55 @@
+
+.botonComprar {
+    color: #fff;
+    background-color: #01530c;
+    font-size: smaller;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botonComprar:hover {
+    background-color: #007a10d7;
+}
+
+.botonCarrito {
+    color: #01530c;
+    font-size: smaller;
+    font-weight: 600;
+    background-color: #ffffff;
+    border: solid 2px #01530c;
+    border-radius: 5px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.botonCarrito:hover {
+    color: #fff;
+    background-color: #007a10d7;
+    border: solid 2px #007a10d7;
+}
+
+.botonCarrito:active, .botonComprar:active {
+    transform: scale(0.9);
+}
+
+.logo {
+    padding-left: 25px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.logo:hover {
+    transform: translateX(5px);
+    transition: transform 0.5s ease-out;
+}
+
+.badgeAlert {
+    background-color: #d80e00;
+    border-radius: 15px;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 0.9rem;
+    width: 20px;
+}
