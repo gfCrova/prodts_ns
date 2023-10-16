@@ -1,8 +1,8 @@
 
-export const getProducts = async () => {
+export const getProducts = async (path) => {
 
     try {
-        const results = await fetch('https://api.escuelajs.co/api/v1/products');
+        const results = await fetch(path);
         const data = await results.json();
         return data;
       } catch (error) {
@@ -22,6 +22,3 @@ export const productos = async () => {
         throw error; // Puedes manejar el error aquí o relanzarlo para que lo maneje quien llame a esta función.
       }
 };
-
-
-export default getProducts

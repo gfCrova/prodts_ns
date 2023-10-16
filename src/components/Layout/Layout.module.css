@@ -1,9 +1,5 @@
 .layout {
     background-color: #fff;
-    padding: 10px;
-}
-
-.container {
-    margin: 0 auto;
     max-width: 1200px;
+    margin: 0 auto;
 }

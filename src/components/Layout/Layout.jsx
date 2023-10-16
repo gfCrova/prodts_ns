@@ -1,19 +1,51 @@
-import PropTypes from 'prop-types'
 import styles from './Layout.module.css'
+import Navbar from '../Nav/Navbar'
+import Productos from '../Productos/Productos'
+import Categorias from '../Categoria/Categorias'
+import { useState } from 'react'
 
-const Layout = (props) => {
+const Layout = () => {
+
+    const [carrito, setCarrito] = useState([]);
+    const [carritoVisible, setCarritoVisible] = useState(false);
+
+    const agregarAlCarro = (producto) => {
+      if (carrito.find((x) => x.id === producto.id)) {
+        const newCarrito = carrito.map((x) =>
+          x.id === producto.id ? { ...x, cantidad: x.cantidad + 1 } : x
+        );
+        setCarrito(newCarrito);
+      } else {
+        setCarrito([...carrito, { ...producto, cantidad: 1 }]);
+      }
+    }
+
+    const mostrarCarrito = () => {
+      if (!carrito.length) {
+        return;
+      }
+      setCarritoVisible(!carritoVisible);
+    };
 
     return (
-      <div className={`${styles.layout}`}>
-        <div className={`${styles.container}`}>
-            {props.children}
-        </div>
-      </div>
+      <main>
+        <header>
+          <Navbar 
+            carrito={carrito} 
+            carritoVisible={carritoVisible} 
+            mostrarCarrito={mostrarCarrito}
+          />
+        </header>
+        <section className={`${styles.layout}`}>
+          <div>
+            <Categorias/>
+            <Productos 
+              agregarAlCarro={agregarAlCarro}
+            />
+          </div>
+        </section>
+      </main>
     )
-  }
-
-Layout.propTypes = {
-    children: PropTypes.node.isRequired, // Valida que 'children' esté presente y sea de tipo nodo
-};
+}
 
 export default Layout;
